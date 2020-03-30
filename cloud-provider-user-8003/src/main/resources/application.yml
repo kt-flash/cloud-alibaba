@@ -1,0 +1,90 @@
+server:
+  port: 8003
+  servlet:
+    session:
+      timeout: 60m
+  tomcat:
+    uri-encoding: utf-8
+
+eureka:
+  client:
+    # 注册到Eureka的注册中心
+    register-with-eureka: true
+    # 获取注册实例列表
+    fetch-registry: true
+    service-url:
+      # 配置注册中心地址
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: cloud-provider-user-8003
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: cloud-provider-user
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test3?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: ll158032
+    hikari:
+      # 最小空闲连接数量
+      minimum-idle: 5
+      # 连接池最大连接数
+      maximum-pool-size: 15
+      # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      # 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 180000
+      # 数据库连接超时时间,默认30秒
+      connection-timeout: 30000
+  redis:
+    host: localhost
+    password: 123456
+    port: 6379
+
+mybatis-plus:
+  configuration:
+    #是否开启自动驼峰命名规则（camel case）映射，
+    #即从经典数据库列名 A_COLUMN（下划线命名） 到经典 Java 属性名 aColumn（驼峰命名） 的类似映射。
+    #默认值：true
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-field: invalid  #全局逻辑删除字段值 3.3.0开始支持
+      #逻辑已删除值,(逻辑删除下有效)
+      logic-delete-value: 1
+      #逻辑未删除值,(逻辑删除下有效)
+      logic-not-delete-value: 0
+      #字段验证策略
+      insert-strategy: NOT_NULL
+      update-strategy: NOT_NULL
+      select-strategy: NOT_NULL
+      #表名前缀
+      table-prefix: t_
+  mapper-locations: classpath*:mapper/*.xml
+  #MyBaits 别名包扫描路径，通过该属性可以给包中的类注册别名，
+  #注册后在 Mapper 对应的 XML 文件中可以直接使用类名，而不用使用全限定的类名
+  #(即 XML 中调用的时候不用包含包名)
+  #type-aliases-package: com.flash.common.entity
+
+logging:
+  level:
+    root: info
+    com.flash.mapper: trace
+  pattern: '%p%m%n'
+
+#Eureka中的服务介绍
+info:
+  app.name: cloud-alibaba
+  company.name: www.flash.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+#熔断器DashBoard：actuator在springboot2.0调整后开关 web端点的配置，"*"代表开启所有
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

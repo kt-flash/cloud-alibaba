@@ -1,0 +1,18 @@
+server:
+  #项目端口号
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-3344
+  cloud:
+    config:
+      server:
+        git:
+          # 配置git仓库的地址
+          uri: https://github.com/kt-flash/cloud-config.git
+          #git默认分支
+          default-label: master
+
+
+

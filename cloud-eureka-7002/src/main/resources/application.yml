@@ -1,0 +1,27 @@
+server:
+  #项目端口号
+  port: 7002
+
+spring:
+  application:
+    name: eureka-server-7002
+
+eureka:
+  #eureka实例定义
+  instance:
+    #eureka实例主机名称
+    hostname: eureka7002.com
+
+  #客户端进行Eureka注册的配置
+  client:
+    #关闭eureka的客户端行为:注册服务
+    register-with-eureka: false
+    #关闭eureka的客户端行为:订阅服务
+    fetch-registry: false
+    service-url:
+      #单机版
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      #eureka集群版
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7003.com:7003/eureka/
+
+

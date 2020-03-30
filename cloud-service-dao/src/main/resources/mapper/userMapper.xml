@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.flash.mapper.UserMapper">
+    <!-- MyBaits 别名包扫描路径，通过该属性可以给包中的类注册别名，
+    注册后在 Mapper 对应的 XML 文件中可以直接使用类名，而不用使用全限定的类名
+    (即 XML 中调用的时候不用包含包名)-->
+    <select id="selectPageVo" resultType="com.flash.common.entity.User">
+        SELECT * FROM t_user ${ew.customSqlSegment}
+    </select>
+
+
+
+
+</mapper>
