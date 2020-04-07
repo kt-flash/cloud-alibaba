@@ -4,8 +4,6 @@ server:
 spring:
   application:
     name: cloud-consumer-user-feign
-#  main:
-#    allow-bean-definition-overriding: true
 
 eureka:
   client:
@@ -21,3 +19,13 @@ eureka:
 feign:
   hystrix:
     enabled: true
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+logging:
+  level:
+    root: info
+    com.flash.common.service: debug
+  pattern: '%p%m%n'

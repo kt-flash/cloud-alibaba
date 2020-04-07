@@ -5,7 +5,7 @@ import com.flash.common.dto.BaseResult;
 import com.flash.common.dto.PageResultDto;
 import com.flash.common.dto.req.ReqUserGroupDto;
 import com.flash.common.dto.req.ReqUserQueryDto;
-import com.flash.common.validator.group.ValidationGroup1;
+import com.flash.common.validator.group.AddGroup;
 import com.flash.common.entity.User;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,7 @@ public class UserConsumerController {
      * @return
      */
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public BaseResult add(@RequestBody @Validated(value = {ValidationGroup1.class}) ReqUserGroupDto reqUserDto,
+    public BaseResult add(@RequestBody @Validated(value = {AddGroup.class}) ReqUserGroupDto reqUserDto,
                            BindingResult result) {
         if(result != null && result.hasErrors()){
             for (ObjectError error : result.getAllErrors()) {

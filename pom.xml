@@ -28,7 +28,7 @@
 
 
     <properties>
-        <flash.version>1.0-SNAPSHOT</flash.version>
+        <project.version>1.0-SNAPSHOT</project.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
@@ -47,12 +47,12 @@
             <dependency>
                 <groupId>com.flash</groupId>
                 <artifactId>cloud-service-dao</artifactId>
-                <version>${flash.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.flash</groupId>
                 <artifactId>cloud-common</artifactId>
-                <version>${flash.version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <!-- module end -->
@@ -197,7 +197,6 @@
             </plugin>
         </plugins>
     </build>
-
 
 
 </project>

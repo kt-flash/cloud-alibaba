@@ -7,7 +7,7 @@ import com.flash.common.dto.req.ReqUserGroupDto;
 import com.flash.common.dto.req.ReqUserQueryDto;
 import com.flash.common.entity.User;
 import com.flash.common.service.UserClientService;
-import com.flash.common.validator.group.ValidationGroup1;
+import com.flash.common.validator.group.AddGroup;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -33,7 +33,7 @@ public class UserConsumerController extends BaseController{
      * @return
      */
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public BaseResult add(@RequestBody @Validated(value = {ValidationGroup1.class}) ReqUserGroupDto reqUserDto,
+    public BaseResult add(@RequestBody @Validated(value = {AddGroup.class}) ReqUserGroupDto reqUserDto,
                            BindingResult result) {
         BaseResult baseResult = handleValidateError(result);
         if(baseResult != null){
@@ -59,11 +59,11 @@ public class UserConsumerController extends BaseController{
         if(baseResult != null){
             return baseResult;
         }
-        User user = new User();
-        BeanUtils.copyProperties(reqUserDto, user);
+        User reqUser = new User();
+        BeanUtils.copyProperties(reqUserDto, reqUser);
 
-        User user2 = userClientService.update(user);
-        return BaseResult.buildSuccessResult(user2);
+        User user = userClientService.update(reqUser);
+        return BaseResult.buildSuccessResult(user);
     }
 
     /**
@@ -81,7 +81,7 @@ public class UserConsumerController extends BaseController{
         }
         Page page = userClientService.pageList(reqUserDto);
 
-        return BaseResult.buildSuccessResult(new PageResultDto(page.getTotal(),
+        return BaseResult.buildSuccessResult(page == null ? PageResultDto.EMPTY_RESULT : new PageResultDto(page.getTotal(),
                 page.getPages(), page.getSize(), page.getRecords()));
     }
 

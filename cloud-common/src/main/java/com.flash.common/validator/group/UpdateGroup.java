@@ -1,4 +1,4 @@
 package com.flash.common.validator.group;
 
-public interface ValidationGroup1 {
+public interface UpdateGroup {
 }

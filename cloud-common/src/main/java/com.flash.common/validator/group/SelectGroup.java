@@ -1,4 +1,4 @@
 package com.flash.common.validator.group;
 
-public interface ValidationGroup3 {
+public interface SelectGroup {
 }
