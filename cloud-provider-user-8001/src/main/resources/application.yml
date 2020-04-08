@@ -43,6 +43,9 @@ spring:
     host: localhost
     password: 123456
     port: 6379
+  messages:
+    #国际化资源文件路径
+    basename: i18n/messages
 
 mybatis-plus:
   configuration:
@@ -88,3 +91,39 @@ management:
     web:
       exposure:
         include: "*"
+
+# Shiro
+shiro:
+  user:
+    # 登录地址
+    loginUrl: /login
+    # 权限认证失败地址
+    unauthorizedUrl: /unauth
+    # 首页地址
+    indexUrl: /index
+    # 验证码开关
+    captchaEbabled: false
+    # 验证码类型 math 数组计算 char 字符
+    captchaType: math
+  cookie:
+    # 设置Cookie的域名 默认空，即当前访问的域名
+    domain:
+    # 设置cookie的有效访问路径
+    path: /
+    # 设置HttpOnly属性
+    httpOnly: true
+    # 设置Cookie的过期时间，天为单位
+    maxAge: 30
+  session:
+    # Session超时时间（默认30分钟）
+    expireTime: 30
+    # 同步session到数据库的周期（默认1分钟）
+    dbSyncPeriod: 1
+    # 相隔多久检查一次session的有效性，默认就是10分钟
+    validationInterval: 10
+
+#用户配置
+user:
+  password:
+    #密码错误{maxRetryCount}次锁定10分钟
+    maxRetryCount: 5

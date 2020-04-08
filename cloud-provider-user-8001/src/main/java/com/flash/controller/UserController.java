@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date: 2019/11/19 15:58
  */
 @RestController
-@RequestMapping(value = "user")
+@RequestMapping(value = "/user")
 public class UserController {
 
     @Autowired
@@ -28,27 +28,27 @@ public class UserController {
      * @return
      */
     @HystrixCommand
-    @PostMapping(value = "add")
+    @PostMapping(value = "/add")
     public User add(@RequestBody User user){
         userService.save(user);
         return user;
     }
 
     @HystrixCommand
-    @PostMapping(value = "update")
+    @PostMapping(value = "/update")
     public User update(@RequestBody User user){
         userService.updateById(user);
         return user;
     }
 
     @HystrixCommand
-    @GetMapping(value = "delete/{id}")
+    @GetMapping(value = "/delete/{id}")
     public boolean delete(@PathVariable("id") String id){
         return userService.removeById(id);
     }
 
     @HystrixCommand
-    @PostMapping(value = "pageList")
+    @PostMapping(value = "/pageList")
     public Page pageList(@RequestBody @Validated ReqUserQueryDto reqUserDto) {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.gt("age",reqUserDto.getAge());
@@ -60,7 +60,7 @@ public class UserController {
     }
 
     @HystrixCommand
-    @GetMapping(value = "get/{id}")
+    @GetMapping(value = "/get/{id}")
     public User get(@PathVariable String id) {
         User user = userService.getById(id);
         return user;
