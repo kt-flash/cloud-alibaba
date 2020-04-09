@@ -12,7 +12,7 @@
     <modules>
         <module>cloud-service-dao</module>
         <module>cloud-common</module>
-        <module>cloud-provider-user-8001</module>
+        <module>cloud-provider-manager</module>
         <module>cloud-provider-user-8002</module>
         <module>cloud-provider-user-8003</module>
         <module>cloud-consumer-user-80</module>

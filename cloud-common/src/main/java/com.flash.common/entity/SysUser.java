@@ -88,6 +88,12 @@ public class SysUser extends BaseEntity {
     @TableField(exist = false)
     private Long[] postIds;
 
+    /**
+     * shiro token
+     */
+    @TableField(exist = false)
+    private String token;
+
     public boolean isAdmin() {
         return isAdmin(this.userId);
     }

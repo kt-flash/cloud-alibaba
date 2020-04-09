@@ -1,27 +1,15 @@
 server:
-  port: 8001
+  port: 80
   servlet:
     session:
       timeout: 60m
   tomcat:
     uri-encoding: utf-8
 
-eureka:
-  client:
-    # 注册到Eureka的注册中心
-    register-with-eureka: true
-    # 获取注册实例列表
-    fetch-registry: true
-    service-url:
-      # 配置注册中心地址
-      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
-  instance:
-    instance-id: cloud-provider-user-8001
-    prefer-ip-address: true
 
 spring:
   application:
-    name: cloud-provider-user
+    name: cloud-provider-manager
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -78,19 +66,6 @@ logging:
     com.flash.mapper: trace
   pattern: '%p%m%n'
 
-#Eureka中的服务介绍
-info:
-  app.name: cloud-alibaba
-  company.name: www.flash.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
-
-#熔断器DashBoard：actuator在springboot2.0调整后开关 web端点的配置，"*"代表开启所有
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
 
 # Shiro
 shiro:
