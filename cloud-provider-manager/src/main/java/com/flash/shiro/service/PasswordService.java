@@ -1,4 +1,4 @@
-package com.flash.service;
+package com.flash.shiro.service;
 
 import com.flash.common.entity.SysUser;
 import com.flash.common.exception.user.UserPasswordNotMatchException;
@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 登录密码方法
  * 
- * @author ruoyi
+ * @author liliang
  */
 @Component
 public class PasswordService

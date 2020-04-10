@@ -3,7 +3,7 @@ package com.flash.common.exception.user;
 /**
  * 用户错误最大次数异常类
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class UserPasswordRetryLimitExceedException extends UserException
 {

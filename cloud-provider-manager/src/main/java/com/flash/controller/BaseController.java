@@ -1,13 +1,13 @@
 package com.flash.controller;
 
 import com.flash.common.entity.SysUser;
-import com.flash.shiro.utils.ShiroUtils;
+import com.flash.utils.ShiroUtils;
 
 
 /**
  * web层通用数据处理
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class BaseController
 {

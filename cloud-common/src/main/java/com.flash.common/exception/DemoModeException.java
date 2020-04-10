@@ -3,7 +3,7 @@ package com.flash.common.exception;
 /**
  * 演示模式异常
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class DemoModeException extends RuntimeException
 {

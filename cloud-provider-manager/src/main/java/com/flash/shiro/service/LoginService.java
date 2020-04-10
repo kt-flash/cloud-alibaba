@@ -9,10 +9,9 @@ import com.flash.common.exception.user.UserNotExistsException;
 import com.flash.common.exception.user.UserPasswordNotMatchException;
 import com.flash.common.model.UserStatus;
 import com.flash.common.utils.DateUtils;
-import com.flash.service.PasswordService;
 import com.flash.service.SysUserService;
-import com.flash.shiro.utils.ServletUtils;
-import com.flash.shiro.utils.ShiroUtils;
+import com.flash.utils.ServletUtils;
+import com.flash.utils.ShiroUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -20,7 +19,7 @@ import org.springframework.util.StringUtils;
 /**
  * 登录校验方法
  * 
- * @author ruoyi
+ * @author liliang
  */
 @Component
 public class LoginService

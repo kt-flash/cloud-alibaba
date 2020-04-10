@@ -79,10 +79,10 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
         </dependency>
-        <!-- Shiro使用EhCache缓存框架 -->
+        <!-- Shiro使用redis缓存框架 -->
         <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-ehcache</artifactId>
+            <groupId>org.crazycake</groupId>
+            <artifactId>shiro-redis</artifactId>
         </dependency>
         <!-- 解析客户端操作系统、浏览器等 -->
         <dependency>

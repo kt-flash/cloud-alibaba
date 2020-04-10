@@ -6,7 +6,7 @@ import org.springframework.util.StringUtils;
 /**
  * 基础异常
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class BaseException extends RuntimeException
 {

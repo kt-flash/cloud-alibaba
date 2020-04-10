@@ -3,7 +3,7 @@ package com.flash.shiro.web.filter.captcha;
 
 import com.flash.common.constant.ShiroConstants;
 import com.flash.common.utils.StringUtils;
-import com.flash.shiro.utils.ShiroUtils;
+import com.flash.utils.ShiroUtils;
 import com.google.code.kaptcha.Constants;
 import org.apache.shiro.web.filter.AccessControlFilter;
 
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 验证码过滤器
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class CaptchaValidateFilter extends AccessControlFilter
 {

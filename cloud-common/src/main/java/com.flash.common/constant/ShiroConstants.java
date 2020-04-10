@@ -3,7 +3,7 @@ package com.flash.common.constant;
 /**
  * Shiro通用常量
  * 
- * @author ruoyi
+ * @author liliang
  */
 public interface ShiroConstants
 {

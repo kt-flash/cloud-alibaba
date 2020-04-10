@@ -3,7 +3,7 @@ package com.flash.common.exception.user;
 /**
  * 角色锁定异常类
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class RoleBlockedException extends UserException
 {

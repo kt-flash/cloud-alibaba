@@ -6,7 +6,7 @@ import com.flash.common.exception.user.*;
 import com.flash.service.SysMenuService;
 import com.flash.service.SysRoleService;
 import com.flash.shiro.service.LoginService;
-import com.flash.shiro.utils.ShiroUtils;
+import com.flash.utils.ShiroUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -20,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * 自定义Realm 处理登录 权限
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class UserRealm extends AuthorizingRealm
 {

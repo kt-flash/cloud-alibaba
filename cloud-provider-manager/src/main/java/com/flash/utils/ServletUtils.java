@@ -1,4 +1,4 @@
-package com.flash.shiro.utils;
+package com.flash.utils;
 
 import com.flash.common.utils.StringUtils;
 import org.springframework.web.context.request.RequestAttributes;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 /**
  * 客户端工具类
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class ServletUtils
 {

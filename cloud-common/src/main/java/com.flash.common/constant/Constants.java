@@ -3,7 +3,7 @@ package com.flash.common.constant;
 /**
  * 通用常量信息
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class Constants
 {

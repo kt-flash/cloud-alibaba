@@ -1,4 +1,4 @@
-package com.flash.shiro.utils;
+package com.flash.utils;
 
 import com.flash.common.entity.SysUser;
 import com.flash.shiro.realm.UserRealm;
@@ -12,7 +12,7 @@ import org.apache.shiro.subject.Subject;
 /**
  * shiro 工具类
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class ShiroUtils
 {

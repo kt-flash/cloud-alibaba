@@ -3,7 +3,7 @@ package com.flash.common.constant;
 /**
  * 用户常量信息
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class UserConstants
 {

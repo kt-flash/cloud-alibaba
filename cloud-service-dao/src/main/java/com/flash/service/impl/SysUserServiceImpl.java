@@ -5,7 +5,6 @@ import com.flash.common.entity.SysUser;
 import com.flash.mapper.SysRoleMapper;
 import com.flash.mapper.SysUserMapper;
 import com.flash.mapper.SysUserRoleMapper;
-import com.flash.service.PasswordService;
 import com.flash.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +25,6 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Autowired
     private SysUserRoleMapper userRoleMapper;
 
-    @Autowired
-    private PasswordService passwordService;
 
     /**
      * 通过用户名查询用户

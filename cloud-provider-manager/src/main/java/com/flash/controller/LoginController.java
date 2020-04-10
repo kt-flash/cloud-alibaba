@@ -8,6 +8,7 @@ import com.flash.common.utils.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,15 +18,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 登录验证
  *
- * @author ruoyi
+ * @author liliang
  */
 @Controller
 public class LoginController extends BaseController {
 
     @GetMapping("/login")
     @ResponseBody
-    public Message login() {
-        return Message.error("请重新登录");
+    public BaseResult login() {
+        return BaseResult.buildTipErrorResult("请重新登录");
     }
 
     @PostMapping("/login")
@@ -47,7 +48,7 @@ public class LoginController extends BaseController {
         }
     }
 
-    /*@GetMapping("/test")
+    @GetMapping("/test")
     @ResponseBody
     public Message test() {
         return Message.success("test");
@@ -67,13 +68,10 @@ public class LoginController extends BaseController {
 
     @GetMapping("/system/test")
     @ResponseBody
+    @RequiresPermissions("system:user:test")
     public Message test4() {
         return Message.success("test4");
-    }*/
-
-    @GetMapping("/unauth")
-    @ResponseBody
-    public Message unauth() {
-        return Message.error("请求未授权");
     }
+
+
 }

@@ -1,11 +1,11 @@
-package com.flash.shiro.utils;
+package com.flash.utils;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
  * 获取IP方法
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class IpUtils
 {

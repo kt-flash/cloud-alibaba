@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * 操作消息提醒
  * 
- * @author ruoyi
+ * @author liliang
  */
 public class Message extends HashMap<String, Object>
 {
