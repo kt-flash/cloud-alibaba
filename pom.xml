@@ -24,6 +24,9 @@
         <module>cloud-config-server-3344</module>
         <module>cloud-consumer-hystrix-dashboard-9001</module>
         <module>cloud-zuul-gateway-9527</module>
+        <module>cloud-alibaba-provider-user-9001</module>
+        <module>cloud-alibaba-provider-user-9002</module>
+        <module>cloud-alibaba-consumer-user-83</module>
     </modules>
 
 
@@ -33,7 +36,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring.cloud.version>Hoxton.SR3</spring.cloud.version>
-        <spring.cloud.alibaba.version>2.2.0.RELEASE</spring.cloud.alibaba.version>
+        <spring.cloud.alibaba.version>2.2.1.RELEASE</spring.cloud.alibaba.version>
         <spring.boot.version>2.2.5.RELEASE</spring.boot.version>
         <lombok.version>1.18.10</lombok.version>
         <myBatis.plus.version>3.3.1</myBatis.plus.version>

@@ -1,0 +1,115 @@
+package com.flash.controller;
+
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.flash.common.dto.BaseResult;
+import com.flash.common.dto.PageResultDto;
+import com.flash.common.dto.req.ReqUserGroupDto;
+import com.flash.common.dto.req.ReqUserQueryDto;
+import com.flash.common.entity.User;
+import com.flash.common.service.UserAlibabaClientService;
+import com.flash.common.validator.group.AddGroup;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * @Author: LiLiang
+ * @Date: 2020/1/2 16:23
+ */
+@RestController
+@RequestMapping(value = "/user")
+public class UserConsumerController extends BaseController{
+
+
+    @Autowired
+    private UserAlibabaClientService userAlibabaClientService;
+
+    /**
+     * 添加用户-服务消费者
+     * @param reqUserDto
+     * @param result
+     * @return
+     */
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public BaseResult add(@RequestBody @Validated(value = {AddGroup.class}) ReqUserGroupDto reqUserDto,
+                           BindingResult result) {
+        BaseResult baseResult = handleValidateError(result);
+        if(baseResult != null){
+            return baseResult;
+        }
+        User user = new User();
+        BeanUtils.copyProperties(reqUserDto, user);
+
+        User user2 = userAlibabaClientService.add(user);
+        return BaseResult.buildSuccessResult(user2);
+    }
+
+    /**
+     * 更新用户-服务消费者
+     * @param reqUserDto
+     * @param result
+     * @return
+     */
+    @RequestMapping(value = "update", method = RequestMethod.POST)
+    public BaseResult update(@RequestBody @Validated ReqUserGroupDto reqUserDto,
+                          BindingResult result) {
+        BaseResult baseResult = handleValidateError(result);
+        if(baseResult != null){
+            return baseResult;
+        }
+        User reqUser = new User();
+        BeanUtils.copyProperties(reqUserDto, reqUser);
+
+        User user = userAlibabaClientService.update(reqUser);
+        return BaseResult.buildSuccessResult(user);
+    }
+
+    /**
+     * 分页查询User
+     * @param reqUserDto
+     * @param result
+     * @return
+     */
+    @RequestMapping(value = "pageList", method = RequestMethod.POST)
+    public BaseResult pageList(@RequestBody @Validated ReqUserQueryDto reqUserDto,
+                               BindingResult result) {
+        BaseResult baseResult = handleValidateError(result);
+        if(baseResult != null){
+            return baseResult;
+        }
+        Page page = userAlibabaClientService.pageList(reqUserDto);
+
+        return BaseResult.buildSuccessResult(page == null ? PageResultDto.EMPTY_RESULT : new PageResultDto(page.getTotal(),
+                page.getPages(), page.getSize(), page.getRecords()));
+    }
+
+    /**
+     * 根据id查询User
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "get/{id}", method = RequestMethod.GET)
+    public BaseResult get(@PathVariable String id) {
+        User user = userAlibabaClientService.get(id);
+        return BaseResult.buildSuccessResult(user);
+    }
+
+    /**
+     * 逻辑删除User
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+    public BaseResult delete(@PathVariable String id) {
+        boolean isDeleted = userAlibabaClientService.delete(id);
+        return BaseResult.buildSuccessResult(isDeleted);
+    }
+
+    @RequestMapping(value = "test", method = RequestMethod.GET)
+    public String test() {
+        return "aaaaaaaaaaaa";
+    }
+
+}
